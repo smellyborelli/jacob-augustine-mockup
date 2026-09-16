@@ -170,6 +170,19 @@
             pointer-events: none;
         }
 
+        /* Handoff: the art face stops drawing at the halfway point of the 0.8s turn.
+           Gecko and some WebKit builds ignore backface-visibility here, which showed
+           the art's backside mirrored in the opened state. Past 90 degrees the art
+           cannot draw, in any engine. The cream face takes over from there. */
+        #album-cover-wrapper .cover-face-art {
+            visibility: visible;
+            transition: visibility 0s linear 0.4s;
+        }
+
+        .gatefold-open #album-cover-wrapper .cover-face-art {
+            visibility: hidden;
+        }
+
         #liner-notes-panel {
             pointer-events: none;
             z-index: 1;
@@ -226,6 +239,9 @@
         @media (prefers-reduced-motion: reduce) {
             #book-wrapper,
             #album-cover-wrapper {
+                transition: none;
+            }
+            #album-cover-wrapper .cover-face-art {
                 transition: none;
             }
         }
@@ -325,7 +341,7 @@
 <!-- The Cover (Swings open) -->
 <div class="absolute inset-0 shadow-2xl cursor-pointer group" id="album-cover-wrapper" role="button" tabindex="0" aria-expanded="false" aria-label="Open the I Love You Forever gatefold">
 <!-- Front face -->
-<div class="absolute inset-0 backface-hidden bg-black z-20">
+<div class="absolute inset-0 backface-hidden bg-black z-20 cover-face-art">
 <img alt="Album cover for I Love You Forever by Jacob Augustine" class="w-full h-full object-cover" src="assets/album-cover.jpg">
 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
 <span class="font-label-caps text-label-caps text-white tracking-[0.2em] uppercase border border-white px-6 py-2">Open</span>
