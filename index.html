@@ -1,0 +1,462 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Jacob Augustine — I Love You Forever">
+<meta property="og:description" content="Homepage mockup for review">
+<meta property="og:image" content="https://smellyborelli.github.io/jacob-augustine-mockup/assets/album-cover.jpg">
+<meta property="og:type" content="website">
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Jacob Augustine - I Love You Forever</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&amp;family=Libre+Caslon+Text:wght@400;700&amp;family=Courier+Prime:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#514700",
+                        "surface-variant": "#373432",
+                        "tertiary-fixed": "#e5e2dd",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#4a4738",
+                        "surface-dim": "#151311",
+                        "surface-container-high": "#2c2927",
+                        "primary": "#ffffff",
+                        "inverse-primary": "#6b5f05",
+                        "on-tertiary-container": "#656461",
+                        "on-error": "#690005",
+                        "on-primary": "#383000",
+                        "on-primary-container": "#71650d",
+                        "primary-container": "#f5e382",
+                        "tertiary": "#ffffff",
+                        "on-secondary-container": "#b7b5ac",
+                        "primary-fixed-dim": "#d8c769",
+                        "on-secondary-fixed-variant": "#474740",
+                        "on-secondary-fixed": "#1c1c16",
+                        "on-tertiary": "#31302d",
+                        "background": "#151311",
+                        "on-surface-variant": "#cdc6b3",
+                        "inverse-on-surface": "#32302e",
+                        "on-surface": "#e7e1de",
+                        "surface-container": "#211f1d",
+                        "on-background": "#e7e1de",
+                        "secondary-fixed-dim": "#c9c6bd",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#e7e1de",
+                        "secondary": "#c9c6bd",
+                        "surface": "#151311",
+                        "primary-fixed": "#f5e382",
+                        "surface-container-low": "#1d1b19",
+                        "surface-bright": "#3b3936",
+                        "on-primary-fixed": "#211c00",
+                        "tertiary-fixed-dim": "#c9c6c2",
+                        "on-tertiary-fixed": "#1c1c19",
+                        "secondary-container": "#474740",
+                        "surface-container-lowest": "#100e0c",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#d8c769",
+                        "surface-container-highest": "#373432",
+                        "on-secondary": "#31312a",
+                        "tertiary-container": "#e5e2dd",
+                        "secondary-fixed": "#e5e2d9",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "outline": "#96917f",
+                        "brand-straw": "#f7e583",
+                        "brand-paper": "#fdfaf0",
+                        "brand-ink": "#1a1816",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "max-width": "1200px",
+                        "margin-desktop": "64px",
+                        "unit": "8px"
+                    },
+                    fontFamily: {
+                        "label-caps": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Libre Caslon Text"],
+                        "display-lg": ["Libre Caslon Text"],
+                        "liner-note": ["Courier Prime"],
+                        "headline-md": ["Libre Caslon Text"]
+                    },
+                    fontSize: {
+                        "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "headline-lg": ["48px", { lineHeight: "1.2", fontWeight: "400" }],
+                        "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "liner-note": ["14px", { lineHeight: "1.5", letterSpacing: "0.02em", fontWeight: "400" }],
+                        "headline-md": ["32px", { lineHeight: "1.2", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Fixed chrome heights. Content area = 100dvh - header - footer block. */
+        :root {
+            --chrome-h: 70px; /* fixed header */
+            --footer-h: 92px; /* fixed footer block: 1px border + 35px padding + 21px line + 35px padding */
+        }
+
+        body {
+            height: 100dvh;
+            overflow: hidden; /* desktop: composition fits the viewport, no page scroll */
+        }
+
+        /* Main content area: viewport minus the fixed header and footer */
+        #site-main {
+            position: absolute;
+            top: var(--chrome-h);
+            bottom: var(--footer-h);
+            left: 0;
+            right: 0;
+            padding: 0 35px;
+        }
+
+        /* Gatefold Animation Setup.
+           perspective sits on the direct parent of the rotating cover, so the 3D chain is intact. */
+        #book-wrapper {
+            /* square = min(column width, content-area height), centered in the column by the flex parent */
+            width: min(100%, calc(100dvh - var(--chrome-h) - var(--footer-h)));
+            aspect-ratio: 1 / 1;
+            perspective: 2000px;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        /* Shift the spread right so a strip of the opened cover (its inside face) stays visible at the
+           left screen edge, bleeding off-screen. Tuned to stay clear of the tour stack. */
+        .gatefold-open .book-wrapper {
+            transform: translateX(12%);
+        }
+
+        /* Tall viewports (square capped by column width, no side slack): cap the shift. */
+        @media (max-aspect-ratio: 3/2) {
+            .gatefold-open .book-wrapper {
+                transform: translateX(min(12%, 24px));
+            }
+        }
+
+        #album-cover-wrapper {
+            transform-origin: left center;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transform-style: preserve-3d;
+            z-index: 10;
+        }
+
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+
+        /* Active State */
+        .gatefold-open #album-cover-wrapper {
+            transform: rotateY(-180deg);
+            pointer-events: none;
+        }
+
+        #liner-notes-panel {
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .gatefold-open #liner-notes-panel {
+            pointer-events: auto;
+        }
+
+        /* Vinyl Crease Effect */
+        .vinyl-crease {
+            background: linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.4) 100%);
+            width: 20px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-shadow: inset 1px 0 3px rgba(0,0,0,0.2);
+        }
+
+        .inside-left-crease {
+            background: linear-gradient(to left, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.4) 100%);
+            width: 20px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            box-shadow: inset -1px 0 3px rgba(0,0,0,0.2);
+        }
+
+        /* Custom Scrollbar for Tour Dates */
+        .tour-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .tour-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .tour-scroll::-webkit-scrollbar-thumb {
+            background: #96917f;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Focus states: visible, in the palette (replaces the default blue ring) */
+        #album-cover-wrapper:focus-visible,
+        #close-gatefold:focus-visible {
+            outline: 1px solid #f7e583;
+            outline-offset: 3px;
+        }
+
+        /* Reduced motion: state change is instant, no animation */
+        @media (prefers-reduced-motion: reduce) {
+            #book-wrapper,
+            #album-cover-wrapper {
+                transition: none;
+            }
+        }
+
+        /* Small screens: single column, page scrolls, cover squares to the width */
+        @media (max-width: 767px) {
+            body {
+                height: auto;
+                min-height: 100dvh;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+            #site-header {
+                position: static;
+                height: auto;
+                min-height: var(--chrome-h);
+                flex-wrap: wrap;
+                row-gap: 8px;
+                padding: 14px 20px;
+            }
+            #site-header nav {
+                flex-wrap: wrap;
+                column-gap: 18px;
+                row-gap: 8px;
+            }
+            #site-header nav > div {
+                font-size: 24px;
+                margin-right: 0;
+                flex-basis: 100%; /* brand on its own row, nav links wrap under it */
+            }
+            #site-main {
+                position: static;
+                padding: 20px 20px 8px;
+            }
+            #gatefold-container {
+                height: auto;
+            }
+            #gatefold-container > div {
+                height: auto;
+            }
+            #site-footer {
+                position: static;
+                padding: 24px 20px;
+                flex-wrap: wrap;
+                row-gap: 10px;
+            }
+            /* small screens: keep the shifted panel inside the viewport (square = width - 40px) */
+            .gatefold-open .book-wrapper {
+                transform: translateX(min(6%, 16px));
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-brand-straw selection:text-brand-ink">
+<!-- TopAppBar -->
+<header id="site-header" class="flex items-center w-full px-[35px] h-[70px] fixed top-0 border-b border-white/10 bg-background/95 z-50">
+<nav class="flex items-baseline gap-8">
+<div class="font-display-lg text-headline-md tracking-tighter text-white mr-4">
+            Jacob Augustine
+        </div>
+<a class="font-label-caps text-label-caps text-on-surface-variant/70 hover:text-white transition-colors duration-300 cursor-pointer" href="#">Tour</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant/70 hover:text-white transition-colors duration-300 cursor-pointer" href="#">Story</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant/70 hover:text-white transition-colors duration-300 cursor-pointer" href="#">Connect</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant/70 hover:text-white transition-colors duration-300 cursor-pointer" href="#">Store</a>
+</nav>
+</header>
+<!-- Main Content Area -->
+<main id="site-main">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full h-full relative" id="gatefold-container">
+<!-- Left Side: Album Cover / Gatefold Interaction (2/3) -->
+<div class="relative flex items-center justify-center md:col-span-2">
+<div class="relative max-w-full book-wrapper" id="book-wrapper">
+<!-- The Liner Notes Panel (Revealed underneath) -->
+<div class="absolute inset-0 shadow-2xl overflow-hidden flex flex-col bg-brand-paper" id="liner-notes-panel">
+<div class="vinyl-crease"></div>
+<button class="absolute top-6 right-6 text-brand-ink/50 hover:text-brand-ink transition-colors z-20" id="close-gatefold" aria-label="Close the liner notes">
+<span class="material-symbols-outlined text-[32px]">close</span>
+</button>
+<div class="p-8 md:p-10 w-full h-full flex flex-col relative z-10 text-brand-ink">
+<div>
+<h2 class="font-display-lg text-headline-md mb-6 text-brand-ink">I Love You Forever</h2>
+<div class="text-brand-ink/80 font-liner-note text-liner-note flex-1 min-h-0 overflow-y-auto pr-4">
+<p class="mb-4">Eight songs. Jacob Augustine's first album in a decade, released May 22, 2026 on Team Love Records. The limited 12-inch vinyl includes a lyric sheet insert.</p>
+<p class="mb-4">Medulla Burning Down. Camaro. Halfway to Harlem. The General's Son. Animal Orchard. Peril. Philadelphia Lights. Midnight Drum.</p>
+<p class="mb-4">Jacob Augustine sings and plays guitar. Hamilton Belk plays pedal steel, lap steel, dobro, banjo, organ and synth. Peter McLaughlin plays drums and percussion. Asher Platts plays upright and electric bass. Peter Broderick plays violin and wrote the string arrangements. Lisa/Liza sings backing vocals. Jerusha Neely plays cello.</p>
+<p class="mb-4">Recorded by Peter McLaughlin, Hamilton Belk and Peter Broderick. Mixed by Noah Cole, except "Midnight Drum," mixed by Peter Broderick. Mastered by Caleb Mulkerin.</p>
+<p class="mb-4">The cover photograph is the artist's mother, taken in the 1960s counter-culture era. He calls it a symbol of that ongoing movement.</p>
+</div>
+</div>
+<div class="border-t border-brand-ink/20 pt-4 mt-6 flex justify-between items-center text-brand-ink/60 font-liner-note text-[12px]">
+<span class="">TEAM LOVE RECORDS</span>
+<span class="">42:39</span>
+<span class="">SIDE A / B</span>
+</div>
+</div>
+</div>
+<!-- The Cover (Swings open) -->
+<div class="absolute inset-0 shadow-2xl cursor-pointer group" id="album-cover-wrapper" role="button" tabindex="0" aria-expanded="false" aria-label="Open the I Love You Forever gatefold">
+<!-- Front face -->
+<div class="absolute inset-0 backface-hidden bg-black z-20">
+<img alt="Album cover for I Love You Forever by Jacob Augustine" class="w-full h-full object-cover" src="assets/album-cover.jpg">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="font-label-caps text-label-caps text-white tracking-[0.2em] uppercase border border-white px-6 py-2">Open</span>
+</div>
+</div>
+<!-- Back face (Inside left cover) -->
+<div class="absolute inset-0 backface-hidden rotate-y-180 bg-brand-paper z-10 border-r border-black/5">
+<div class="inside-left-crease"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Vertical Stack (1/3) -->
+<div class="flex flex-col justify-center gap-6 h-full py-4 z-0 md:col-span-1">
+<!-- Tour Dates -->
+<div class="flex-1 min-h-0 flex flex-col">
+<h3 class="font-label-caps text-label-caps text-brand-straw mb-3 tracking-[0.2em] border-b border-white/10 pb-2">On Tour</h3>
+<div class="overflow-y-auto tour-scroll pr-4 space-y-4 flex-1">
+<!-- Date 1 -->
+<div class="flex justify-between items-center group py-2 border-b border-white/5 hover:border-brand-straw/30 transition-colors">
+<div class="flex flex-col">
+<span class="font-liner-note text-liner-note text-on-surface">OCT 14</span>
+<span class="font-body-md text-body-md text-on-surface-variant">The Birchmere • Alexandria, VA</span>
+</div>
+<button class="font-label-caps text-[10px] text-brand-straw border border-brand-straw px-4 py-1 hover:bg-brand-straw hover:text-brand-ink transition-colors">TICKETS</button>
+</div>
+<!-- Date 2 -->
+<div class="flex justify-between items-center group py-2 border-b border-white/5 hover:border-brand-straw/30 transition-colors">
+<div class="flex flex-col">
+<span class="font-liner-note text-liner-note text-on-surface">OCT 16</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Bowery Ballroom • New York, NY</span>
+</div>
+<button class="font-label-caps text-[10px] text-brand-straw border border-brand-straw px-4 py-1 hover:bg-brand-straw hover:text-brand-ink transition-colors">TICKETS</button>
+</div>
+<!-- Date 3 -->
+<div class="flex justify-between items-center group py-2 border-b border-white/5 hover:border-brand-straw/30 transition-colors">
+<div class="flex flex-col">
+<span class="font-liner-note text-liner-note text-on-surface">OCT 18</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Sinclair • Boston, MA</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant/50 px-4 py-1">SOLD OUT</span>
+</div>
+<!-- Date 4 -->
+<div class="flex justify-between items-center group py-2 border-b border-white/5 hover:border-brand-straw/30 transition-colors">
+<div class="flex flex-col">
+<span class="font-liner-note text-liner-note text-on-surface">OCT 21</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Union Transfer • Philadelphia, PA</span>
+</div>
+<button class="font-label-caps text-[10px] text-brand-straw border border-brand-straw px-4 py-1 hover:bg-brand-straw hover:text-brand-ink transition-colors">TICKETS</button>
+</div>
+</div>
+</div>
+<!-- Audio Player (visual mock, non-functional) -->
+<div class="bg-surface-container border border-white/5 p-4 flex items-center gap-4">
+<button class="text-brand-straw hover:scale-110 transition-transform" aria-label="Play">
+<span class="material-symbols-outlined text-[32px]">play_circle</span>
+</button>
+<div class="flex-1">
+<div class="flex justify-between items-end mb-1">
+<span class="font-body-md text-body-md text-on-surface leading-none">Midnight Drum</span>
+<span class="font-liner-note text-[12px] text-on-surface-variant/50 leading-none">0:45 / 2:53</span>
+</div>
+<div class="h-[2px] bg-white/10 w-full relative">
+<div class="absolute left-0 top-0 h-full bg-brand-straw w-1/5"></div>
+<div class="absolute left-1/5 top-1/2 -translate-y-1/2 w-2 h-2 bg-brand-straw rounded-full"></div>
+</div>
+</div>
+<div class="flex gap-2 text-on-surface-variant/50">
+<button class="hover:text-brand-straw transition-colors" aria-label="Previous track"><span class="material-symbols-outlined text-[20px]">skip_previous</span></button>
+<button class="hover:text-brand-straw transition-colors" aria-label="Next track"><span class="material-symbols-outlined text-[20px]">skip_next</span></button>
+</div>
+</div>
+<!-- Newsletter (visual mock, non-functional) -->
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4">follow for future tour information</h3>
+<form class="flex gap-4">
+<input class="bg-transparent border-0 border-b border-white/20 focus:border-brand-straw focus:ring-0 px-0 py-2 flex-1 font-liner-note text-liner-note text-on-surface placeholder:text-on-surface-variant/30" placeholder="Email address" type="email" aria-label="Email address">
+<button class="font-label-caps text-label-caps text-brand-ink bg-brand-straw px-6 py-2 hover:bg-brand-straw/90 transition-colors" type="submit">SUBSCRIBE</button>
+</form>
+</div>
+</div>
+</div></main>
+<!-- Footer from JSON -->
+<footer id="site-footer" class="fixed bottom-0 w-full flex justify-between items-center px-[35px] py-[35px] border-t border-white/10 flat no shadows bg-transparent z-40">
+<div class="font-label-caps text-label-caps text-on-surface">
+            © 2026 Jacob Augustine / Team Love Records
+        </div>
+<div class="flex gap-6">
+<a class="font-liner-note text-liner-note text-on-surface-variant hover:text-white underline transition-all duration-200" href="#">Privacy</a>
+<a class="font-liner-note text-liner-note text-on-surface-variant hover:text-white underline transition-all duration-200" href="#">Press Kit</a>
+</div>
+</footer>
+<!-- Interactive Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('gatefold-container');
+            const albumCover = document.getElementById('album-cover-wrapper');
+            const closeBtn = document.getElementById('close-gatefold');
+
+            const openGatefold = () => {
+                container.classList.add('gatefold-open');
+                albumCover.setAttribute('aria-expanded', 'true');
+                closeBtn.focus();
+            };
+
+            const closeGatefold = () => {
+                container.classList.remove('gatefold-open');
+                albumCover.setAttribute('aria-expanded', 'false');
+                albumCover.focus();
+            };
+
+            albumCover.addEventListener('click', openGatefold);
+            albumCover.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openGatefold();
+                }
+            });
+
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeGatefold();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && container.classList.contains('gatefold-open')) {
+                    closeGatefold();
+                }
+            });
+        });
+    </script>
+
+
+</body></html>
